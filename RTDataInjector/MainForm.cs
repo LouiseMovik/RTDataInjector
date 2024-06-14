@@ -112,13 +112,18 @@ namespace RTDataInjector
                 // Counts subfolders containing dicom files
                 DirectoryInfo mainDirectory = new DirectoryInfo(txtPath.Text);
                 patientDirectories = mainDirectory.EnumerateDirectories().Where(r => Directory.EnumerateFiles(r.FullName, "*.dcm", SearchOption.AllDirectories).Count() > 0);
+                if (patientDirectories.Count() == 0) // When a single patient folder has been entered as path
+                {
+                    List<DirectoryInfo> listOfSinglePatientDirectory = new List<DirectoryInfo> { mainDirectory };
+                    patientDirectories = listOfSinglePatientDirectory;
+                }
                 lblIdentifiedFolders.Text = patientDirectories.Count().ToString();
 
                 // Reading dicom files in specified folder including subdirectories
                 dcmCount = Directory.EnumerateFiles(txtPath.Text, "*.dcm", SearchOption.AllDirectories).Count();
                 lblIdentifiedDICOMFiles.Text = dcmCount.ToString();
 
-                if (dcmCount > 0) // Edited .Length removed 3 places
+                if (dcmCount > 0) 
                 {
                     prgBar.Maximum = dcmCount - 1;
                 }
