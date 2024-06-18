@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icojam-Blue-Bits-Database-arrow-left.ico</ApplicationIcon>
+    <ApplicationIcon>Icojam-Blue-Bits-Database-arrow-up.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EvilDICOM, Version=2.0.6.5, Culture=neutral, processorArchitecture=MSIL">
@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icojam-Blue-Bits-Database-arrow-left.ico" />
+    <Content Include="Icojam-Blue-Bits-Database-arrow-up.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
